@@ -1,0 +1,9 @@
+Infix expression: -(+1.2*3-3)+((0.6)+1)/1.001
+Result: 0.998401598401599
+Infix expression: 3*1.2-3.14/(-4.5+3+1.5)
+Error: Infix expression: 2*sin(sin(0.001))+2.14)+20.1
+Error: Infix expression: 1.234.567-1*2.3
+Result: -1.066000000000000
+Infix expression: 1.7+0.x45-10d
+Error: Infix expression: 1:-)
+Error: 

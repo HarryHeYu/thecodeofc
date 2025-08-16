@@ -1,0 +1,210 @@
+{
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.showContextMenu": true,
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.message.error.show": false,
+    "latex-workshop.message.warning.show": false,
+    "latex-workshop.latex.tools": [
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "XeLaTeX",
+            "tools": [
+                "xelatex"
+            ]
+        },
+        {
+            "name": "PDFLaTeX",
+            "tools": [
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "BibTeX",
+            "tools": [
+                "bibtex"
+            ]
+        },
+        {
+            "name": "LaTeXmk",
+            "tools": [
+                "latexmk"
+            ]
+        },
+        {
+            "name": "xelatex -> bibtex -> xelatex*2",
+            "tools": [
+                "xelatex",
+                "bibtex",
+                "xelatex",
+                "xelatex"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex*2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.clean.fileTypes": [
+        "*.aux",
+        "*.bbl",
+        "*.blg",
+        "*.idx",
+        "*.ind",
+        "*.lof",
+        "*.lot",
+        "*.out",
+        "*.toc",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.ist",
+        "*.fls",
+        "*.log",
+        "*.fdb_latexmk"
+    ],
+    "latex-workshop.latex.autoClean.run": "onFailed",
+    "latex-workshop.latex.recipe.default": "lastUsed",
+    "latex-workshop.view.pdf.internal.synctex.keybinding": "double-click",
+    "files.associations": {
+        "stdio.h": "c",
+        "math.h": "c",
+        "stdlib.h": "c",
+        "stdbool.h": "c",
+        "ctype.h": "c",
+        "typeinfo": "cpp",
+        "string.h": "c",
+        "stdarg.h": "c",
+        "*.cpp": "cpp",
+        "*.hpp": "cpp",
+        "iostream": "cpp",
+        "array": "cpp",
+        "atomic": "cpp",
+        "bit": "cpp",
+        "cctype": "cpp",
+        "charconv": "cpp",
+        "clocale": "cpp",
+        "cmath": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "cstdarg": "cpp",
+        "cstddef": "cpp",
+        "cstdint": "cpp",
+        "cstdio": "cpp",
+        "cstdlib": "cpp",
+        "ctime": "cpp",
+        "cwchar": "cpp",
+        "cwctype": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "exception": "cpp",
+        "algorithm": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "memory_resource": "cpp",
+        "numeric": "cpp",
+        "optional": "cpp",
+        "random": "cpp",
+        "string_view": "cpp",
+        "system_error": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "format": "cpp",
+        "initializer_list": "cpp",
+        "iosfwd": "cpp",
+        "istream": "cpp",
+        "limits": "cpp",
+        "new": "cpp",
+        "numbers": "cpp",
+        "ostream": "cpp",
+        "span": "cpp",
+        "stdexcept": "cpp",
+        "streambuf": "cpp",
+        "text_encoding": "cpp",
+        "variant": "cpp"
+    },
+    // C/C++ 智能感知设置（可选）
+    "C_Cpp.default.compilerPath": "C:/mingw64/bin/g++.exe",
+    "C_Cpp.default.intelliSenseMode": "gcc-x64",
+    "C_Cpp.default.cppStandard": "c++23",
+    "C_Cpp.default.cStandard": "c17",
+    // 背景美化插件设置
+    "background.editor": {
+        "useFront": true,
+        "style": {
+            "background-position": "100% 100%",
+            "background-size": "auto",
+            "opacity": 0.6
+        },
+        "styles": [{}, {}, {}],
+        "images": [
+            "C:/Users/He_Yu_Hao/Desktop/何禹壕的资料/壁纸/60ed0cf7ly1hr4a9tere9j21hc0u07hj.jpg",
+            "C:/Users/He_Yu_Hao/Desktop/何禹壕的资料/壁纸"
+        ],
+        "interval": 0,
+        "random": false
+    },
+    "background.sidebar": {
+        // 侧边栏相关设置（如有需要可补充）
+    },
+    "background.panel": {
+        "images": [
+            "C:/Users/He_Yu_Hao/Desktop/何禹壕的资料/壁纸/60ed0cf7ly1hr4a9tere9j21hc0u07hj.jpg"
+        ]
+    },
+    "background.fullscreen": {
+        // 全屏相关设置（如有需要可补充）
+    },
+    "cmake.sourceDirectory": "D:/thecodeofc/c_learning/cPLusPlus/selfLearning"
+}

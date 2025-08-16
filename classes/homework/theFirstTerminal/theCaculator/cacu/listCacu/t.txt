@@ -1,0 +1,35 @@
+Infix expression: -(1.2*3-3)+(0.6+1)/1.001
+Result: 0.998401598401599
+Infix expression: 3*1.2-3.14/(-4.5+3+1.5)
+Error: Infix expression: 2*sin(sin(pi/8)+2.14)+2.01
+Result: 3.170294107419700
+Infix expression: 1234.567-1*2.3
+Result: 1232.267000000000053
+Infix expression: 1.7+0.45-10
+Result: -7.850000000000000
+Infix expression: 3+5*(2-4)
+Result: -7.000000000000000
+Infix expression: (7+2)*3/6
+Result: 4.500000000000000
+Infix expression: 10-3^2
+Result: 1.000000000000000
+Infix expression: (sin(pi/6) + cos(pi/4))^2 + sqrt(2) * tan(pi/3)
+Result: 3.906596523969725
+Infix expression: (sqrt(3) / 2)^3 - 2 * acos(-1/2) + sqrt(4)
+Result: -1.539271151948062
+Infix expression: (1 + tan(pi/4))^2 - (1 - sin(pi/2))^3
+Result: 4.000000000000000
+Infix expression: (sqrt(2) + sqrt(3))^2 / (1 - sin(pi/12)) - (cos(pi/6) + tan(pi/4))
+Result: 11.489659763457334
+Infix expression: (2^3) * (sqrt(2) * sin(pi/3) + cos(pi/4)) + (1 / sqrt(3))^2
+Result: 15.788146553958429
+Infix expression: (3 * sqrt(5))^2 - 4 * (sqrt(2))^2 * cos(pi/10) + 2 * sqrt(3) * sin(pi/6)
+Result: 39.123598677207653
+Infix expression: (1 / tan(pi/8))^2 + 2 * sqrt(1 - cos(pi/4))^2 - (sqrt(8))^3
+Result: -16.213203435596430
+Infix expression: (sqrt(7) - 2) * (acos(1/3))^2 + (1 / sqrt(2))^2 * (1 + sin(5*pi/12))
+Result: 1.961444746770307
+Infix expression: (sqrt(3) + 1) / (1 - sin(pi/18)) - (sqrt(2) * cos(5*pi/12) + tan(pi/6))
+Result: 2.362783681591618
+Infix expression: 2^5 * (sqrt(10) - sqrt(9))^2 / (1 + tan(pi/9)) + (1 / sqrt(5))^3
+Result: 0.707263567752547
