@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage{amsmath} % 数学公式支持
+\usepackage{amssymb} % 数学符号支持
+\usepackage{bm}      % 加粗数学符号
+\usepackage[UTF8]{ctex} % 中文支持
+
+\begin{document}
+
+% --- 公式部分 ---
+
+% B.1 输入表示：词嵌入与位置编码
+设 $w_i$ 为输入单词，$d_{\text{model}}$ 为模型维度，$\mathbf{e}_i$ 为嵌入向量：
+\[
+\mathbf{e}_i = \text{Embedding}(w_i) \in \mathbb{R}^{d_{\text{model}}}
+\]
+位置编码 $\mathbf{p}_i$ 定义为：
+\[
+\begin{aligned}
+\text{PE}_{(pos, 2k)} &= \sin(pos / 10000^{2k/d_{\text{model}}}) \\
+\text{PE}_{(pos, 2k+1)} &= \cos(pos / 10000^{2k/d_{\text{model}}})
+\end{aligned}
+\]
+最终的输入表示 $\mathbf{x}_i$ 为：
+\[
+\mathbf{x}_i = \mathbf{e}_i + \mathbf{p}_i
+\]
+
+% B.1 自注意力机制
+给定 $\mathbf{x}_i$，查询、键和值向量计算如下：
+\[
+\begin{aligned}
+\mathbf{q}_i &= \mathbf{x}_i W^Q \\
+\mathbf{k}_i &= \mathbf{x}_i W^K \\
+\mathbf{v}_i &= \mathbf{x}_i W^V
+\end{aligned}
+\]
+注意力机制定义为：
+\[
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\]
+
+% B.3 与传统编译器的比较
+对于操作 $a + b$，结果 $c$ 的预测为：
+\[
+\arg\max_c P(c | a, \text{操作}, b; \theta)
+\]
+
+% C.2 未来趋势
+混合系统结合了神经网络 $N$ 和符号系统 $S$：
+\[
+H(\text{输入}) = N(\text{输入}, S_{\text{查询}}(\text{输入}))
+\]
+
+% C.3 示例说明（概念性）
+一个前馈函数的示例：
+\[
+f(x) = W_2 \cdot \text{ReLU}(W_1 \cdot x + b_1) + b_2
+\]
+
+% C.3.1 概念性公式补充
+在某些上下文中，输出向量 $\mathbf{y}_i$ 可以表示为：
+\[
+\mathbf{y}_i = f\left(\mathbf{x}_i, \{\mathbf{x}_j\}_{j=1}^n\right) \quad (\text{概念性公式，基于 D2DL Eq. 10.6.1})
+\]
+
+% --- 新增公式部分 ---
+
+% 普通交叉熵损失
+普通交叉熵损失定义为：
+\[
+\mathcal{L}_{\text{CE}}(\theta) = - \sum_{k=1}^{V} t_k \log p_k
+\]
+其中：
+\begin{itemize}
+    \item \( \theta \) 是模型的参数。
+    \item \( V \) 是词汇表的大小。
+    \item \( t_k \) 是目标分布（通常是 one-hot 编码）。
+    \item \( p_k = P(w=k | \text{context}; \theta) \) 是模型预测词汇表中第 \( k \) 个词元的概率。
+\end{itemize}
+
+
+% 带有标签平滑的交叉熵损失
+带有标签平滑的交叉熵损失定义为：
+\[
+\mathcal{L}_{\text{smooth}}(\theta) = - \sum_{k=1}^{V} t'_k \log p_k = - \left( (1 - \epsilon) \log p_y + \sum_{k \neq y} \frac{\epsilon}{V-1} \log p_k \right)
+\]
+
+% 掩码语言模型损失
+掩码语言模型损失定义为：
+\[
+\mathcal{L}_{\text{MLM}}(\theta) = - \sum_{i \in M} \log P(w_i | \text{context}_{\text{masked}}; \theta)
+\]
+
+% 强化学习目标 (PPO)
+强化学习目标 (PPO) 的核心公式为：
+\[
+J_{PPO}(\theta) = \mathbb{E}_{x \sim D, y \sim \pi_{\theta}(y|x)} [ R(x, y) - \beta \cdot \text{KL}(\pi_{\theta}(y|x) || \pi_{\text{ref}}(y|x)) ]
+\]
+
+% 直接偏好优化损失
+直接偏好优化损失定义为：
+\[
+\mathcal{L}_{\text{DPO}}(\theta, \pi_{\text{ref}}) = - \mathbb{E}_{(x, y_w, y_l) \sim D_{\text{pref}}} \left[ \log \sigma \left( \beta \log \frac{\pi_{\theta}(y_w|x)}{\pi_{\text{ref}}(y_w|x)} - \beta \log \frac{\pi_{\theta}(y_l|x)}{\pi_{\text{ref}}(y_l|x)} \right) \right]
+\]
+
+% 模型的运算是高维向量空间中的几何变换
+模型的运算是高维向量空间中的几何变换。例如，对于加法 "3 + 5 = 8"，模型学习到的复杂函数 \( f_{\theta} \) 目标是使得处理输入序列 "3 + 5 =" 后的输出向量在概率上最接近目标 "8" 的向量表示 \( \mathbf{x}_8 \)：
+\[
+f_{\theta}(\text{Context}(\mathbf{x}_3, \mathbf{x}_{+}, \mathbf{x}_5, \mathbf{x}_{=})) \rightarrow \text{Probability Distribution over Vocabulary}
+\]
+且该分布在 \( \mathbf{x}_8 \) 处概率最高。
+
+
+% --- Softmax 数学公式 ---
+Softmax 函数定义为：
+\[
+\text{softmax}(z_i) = \frac{\exp(z_i)}{\sum_{j=1}^{n} \exp(z_j)}
+\]
+其中：
+\begin{itemize}
+    \item \( z_i \) 是输入向量 \( z \) 中的第 \( i \) 个元素。
+    \item \( n \) 是输入向量的维度。
+    \item \( \exp \) 表示指数函数。
+\end{itemize}
+\end{document}
