@@ -159,6 +159,7 @@ FakesAssemblies/
 !.vscode/launch.json
 # 允许跟踪 .vscode/self_Learn 文件夹
 !.vscode/self_Learn/
+!/vscode/studio/
 
 
 # JetBrains Rider
